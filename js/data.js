@@ -34,8 +34,8 @@ window.CV_DATA = {
   highlights: [
     "Graduate in Preventive Medicine",
     "Funded trader with FTMO & The5ers",
-    "Python · SQL · Blockchain",
-    "Goal: MFin at Massey University"
+    "Venture research & DeFi community",
+    "Self-built trading & fintech tools"
   ],
 
   /* ---------- About me (one string per paragraph) ---------- */
@@ -136,12 +136,7 @@ window.CV_DATA = {
       icon: "chart",
       items: [
         "Financial analysis",
-        "Valuation (DCF, multiples)",
-        "Excel financial modelling",
-        "Risk & money management",
-        "Portfolio management",
-        "Technical & fundamental analysis",
-        "Forex, crypto & derivatives markets"
+        "Risk & money management"
       ]
     },
     {
@@ -149,12 +144,8 @@ window.CV_DATA = {
       icon: "code",
       items: [
         "Python",
-        "SQL",
         "Blockchain & DeFi",
-        "Data analysis",
-        "Trading automation (MQL5 EAs)",
-        "Git & GitHub",
-        "HTML / CSS / JavaScript"
+        "Trading automation (MQL5)"
       ]
     },
     {
@@ -164,10 +155,7 @@ window.CV_DATA = {
         "Self-directed learning",
         "Discipline & emotional control",
         "Analytical thinking",
-        "Problem solving",
-        "Communication",
-        "Adaptability",
-        "Attention to detail"
+        "Adaptability"
       ]
     }
   ],

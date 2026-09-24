@@ -5,3 +5,6 @@
 .claude/
 Thumbs.db
 .DS_Store
+
+# Photos / scans of certificates for me to read (never published)
+_certs-input/
