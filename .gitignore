@@ -1,0 +1,7 @@
+# Original photo dropped into the folder (already optimised into assets/avatar.jpg)
+487315878_3242100439262973_5119890061404877094_n.jpg
+
+# Local tooling
+.claude/
+Thumbs.db
+.DS_Store
