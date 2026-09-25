@@ -167,7 +167,7 @@ window.CV_DATA = {
     {
       name: "SoloTax",
       status: "",
-      description: "Mobile app that helps Vietnamese freelancers work out which tax category they fall into, estimate what they owe and follow a step-by-step compliance checklist, driven by a rule-based engine that models the current tax rules. A working demo build (APK) exists; it is not yet publicly released.",
+      description: "Mobile app that helps Vietnamese freelancers work out which tax category they fall into, estimate what they owe and follow a step-by-step compliance checklist, driven by a rule-based engine that models the current tax rules.",
       tech: ["React Native", "Expo", "TypeScript", "Rule-based engine"],
       image: "assets/projects/solotax-app-preview.jpg",
       thumb: "assets/projects/solotax-app-preview-thumb.jpg",
