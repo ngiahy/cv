@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MT5 Trade Copier & Risk Dashboard — architecture (rendered by tools/build.py diagrams)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 675px; overflow: hidden; }
+  body { position: relative; background: #f4f9f8; color: #0f1f24; font-family: Inter, "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  .hd { position: absolute; left: 56px; top: 36px; }
+  .hd .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #0f766e; }
+  .hd h1 { font-family: Manrope, Inter, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -.01em; margin-top: 6px; }
+  .box { position: absolute; background: #fff; border: 1.5px solid #cfe0dd; border-radius: 14px; padding: 16px 18px; box-shadow: 0 6px 18px rgba(15, 118, 110, .06); }
+  .box h2 { font-size: 18px; font-weight: 700; letter-spacing: -.01em; margin-bottom: 6px; }
+  .box p { font-size: 13.5px; line-height: 1.45; color: #4b5f66; }
+  .box.accent { background: #0f766e; border-color: #0f766e; }
+  .box.accent h2 { color: #fff; }
+  .box.accent p { color: rgba(255, 255, 255, .9); }
+  .box.soft { background: #e6f4f1; border-color: #bfe0d9; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; padding: 9px 12px; border-radius: 10px; background: #f4f9f8; border: 1px solid #d9e8e5; font-size: 13.5px; }
+  .row b { font-weight: 700; color: #0f1f24; }
+  .row span { color: #4b5f66; }
+  svg.arrows { position: absolute; inset: 0; width: 1200px; height: 675px; pointer-events: none; }
+  .lbl { position: absolute; transform: translate(-50%, -50%); padding: 2px 7px; border-radius: 6px; background: #f4f9f8; font-size: 12.5px; font-weight: 600; color: #0b5f59; white-space: nowrap; }
+  .foot { position: absolute; left: 56px; bottom: 26px; font-size: 12.5px; color: #6b7c82; }
+</style>
+</head>
+<body>
+  <div class="hd">
+    <p class="eyebrow">Architecture · all terminals on one VPS</p>
+    <h1>MT5 Trade Copier &amp; Risk Dashboard</h1>
+  </div>
+
+  <div class="box" style="left:56px; top:130px; width:260px; height:150px">
+    <h2>Web dashboard (local)</h2>
+    <p>Account &amp; terminal manager · trade requests (buy / sell / close, SL-TP) · live status and drawdown view</p>
+  </div>
+  <div class="box" style="left:56px; top:320px; width:260px; height:200px">
+    <h2>Resync &amp; safety</h2>
+    <p>Snapshot each second closes or resizes mirrored positions after a disconnect · trading stays off per account until enabled · no passwords stored by default</p>
+  </div>
+
+  <div class="box accent" style="left:420px; top:130px; width:270px; height:120px">
+    <h2>Master EA · MetaTrader 5</h2>
+    <p>Event-driven: every deal, order or SL-TP change is captured the instant it happens</p>
+  </div>
+  <div class="box soft" style="left:420px; top:300px; width:270px; height:110px">
+    <h2>Shared signal folder</h2>
+    <p>One small file per trade event · position snapshot every second for resync</p>
+  </div>
+
+  <div class="box" style="left:800px; top:110px; width:344px; height:230px">
+    <h2>Slave EAs · one per funded account</h2>
+    <div class="row"><b>Account 1</b><span>risk-sized lot · mirrored SL / TP</span></div>
+    <div class="row"><b>Account 2</b><span>risk-sized lot · mirrored SL / TP</span></div>
+    <div class="row"><b>Account n</b><span>risk-sized lot · mirrored SL / TP</span></div>
+  </div>
+  <div class="box accent" style="left:800px; top:370px; width:344px; height:110px">
+    <h2>Risk engine</h2>
+    <p>Lot size from % risk per account · lot factor per slave · pyramiding sized by group risk · SL / TP mirrored</p>
+  </div>
+  <div class="box soft" style="left:800px; top:510px; width:344px; height:96px">
+    <h2>Broker execution</h2>
+    <p>Orders go to each account's own broker · retries on failed close / resize</p>
+  </div>
+
+  <svg class="arrows" viewBox="0 0 1200 675">
+    <defs>
+      <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="#14b8a6"/></marker>
+      <marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" fill="#7fb8b0"/></marker>
+    </defs>
+    <line x1="316" y1="190" x2="420" y2="190" stroke="#14b8a6" stroke-width="3" marker-end="url(#a)"/>
+    <line x1="420" y1="330" x2="316" y2="250" stroke="#7fb8b0" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#d)"/>
+    <line x1="555" y1="250" x2="555" y2="300" stroke="#14b8a6" stroke-width="3" marker-end="url(#a)"/>
+    <line x1="690" y1="355" x2="800" y2="300" stroke="#14b8a6" stroke-width="3" marker-end="url(#a)"/>
+    <line x1="972" y1="340" x2="972" y2="370" stroke="#14b8a6" stroke-width="3" marker-end="url(#a)"/>
+    <line x1="972" y1="480" x2="972" y2="510" stroke="#14b8a6" stroke-width="3" marker-end="url(#a)"/>
+  </svg>
+  <span class="lbl" style="left:368px; top:176px">requests</span>
+  <span class="lbl" style="left:352px; top:305px">status heartbeat</span>
+  <span class="lbl" style="left:615px; top:275px">trade events</span>
+  <span class="lbl" style="left:738px; top:352px">poll every ~20 ms</span>
+
+  <p class="foot">Schematic overview · no account data shown</p>
+</body>
+</html>

@@ -195,7 +195,7 @@
             '<span class="cert-zoom">' + icon('zoom') + 'View</span>' +
           '</a>'
         : '';
-      return '<article class="card project-card reveal' + (hasImg ? ' has-image' : '') + '">' +
+      return '<article class="card project-card reveal' + (hasImg ? ' has-image' : '') + (hasImg && p.featured ? ' featured' : '') + '">' +
         thumb +
         '<div class="project-body">' +
           '<div class="project-head"><h3>' + esc(p.name) + '</h3>' +

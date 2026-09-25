@@ -14,7 +14,7 @@ build, chạy được trên mọi dịch vụ host tĩnh (GitHub Pages, Cloudfl
 | `assets/avatar.jpg` | Ảnh chân dung (vuông, 640×640). Xoá file này thì trang hiện chữ cái tên |
 | `assets/Nguyen-Gia-Hy-CV.pdf` | Bản PDF tĩnh mà nút Download PDF tải về (sinh bằng `tools/build.py`) |
 | `assets/og-image.jpg` | Ảnh xem trước khi chia sẻ link lên LinkedIn, Zalo, Facebook... (sinh bằng `tools/build.py`) |
-| `tools/`            | Script dựng PDF và ảnh xem trước (`build.py`) cùng mẫu ảnh xem trước (`og-image.html`) |
+| `tools/`            | Script dựng PDF và ảnh xem trước (`build.py`), mẫu ảnh xem trước (`og-image.html`), sơ đồ kiến trúc dự án (`diagrams/*.html`) |
 | `.nojekyll`         | Báo GitHub Pages không chạy Jekyll, giữ nguyên file                     |
 
 ## Sửa nội dung CV
@@ -57,6 +57,9 @@ trong `data.js` (dòng "Last updated" ở chân trang và cuối PDF).
 
 Nếu để `pdfFile: ""` trong `data.js`, nút Download quay về mở hộp thoại in của trình
 duyệt (chọn máy in **Save as PDF**).
+
+Sơ đồ kiến trúc của các dự án là file HTML trong `tools/diagrams/`. Sửa xong chạy
+`python tools/build.py diagrams` để xuất lại ảnh vào `assets/projects/`.
 
 ## Đưa lên GitHub Pages
 

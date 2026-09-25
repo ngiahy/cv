@@ -4,6 +4,7 @@
     python tools/build.py          # both
     python tools/build.py pdf      # assets/Nguyen-Gia-Hy-CV.pdf only
     python tools/build.py og       # assets/og-image.jpg only
+    python tools/build.py diagrams # tools/diagrams/*.html -> assets/projects/*.jpg (+ -thumb)
 
 Needs Microsoft Edge or Google Chrome installed (headless mode is used).
 The preview image additionally needs Pillow (pip install pillow).
@@ -25,6 +26,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDF_OUT = os.path.join(ROOT, "assets", "Nguyen-Gia-Hy-CV.pdf")
 OG_OUT = os.path.join(ROOT, "assets", "og-image.jpg")
+DIAGRAM_DIR = os.path.join(ROOT, "tools", "diagrams")
+PROJECT_IMG_DIR = os.path.join(ROOT, "assets", "projects")
 DATA_JS = os.path.join(ROOT, "js", "data.js")
 MONTHS = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
@@ -129,9 +132,33 @@ def build_og(exe, base):
     print("OG   -> %s (%d KB, 1200x630)" % (os.path.relpath(OG_OUT, ROOT), os.path.getsize(OG_OUT) // 1024))
 
 
+def build_diagrams(exe, base):
+    try:
+        from PIL import Image
+    except ImportError:
+        sys.exit("Diagrams need Pillow: pip install pillow")
+    pages = sorted(f for f in os.listdir(DIAGRAM_DIR) if f.lower().endswith(".html"))
+    if not pages:
+        print("DIAG -> nothing to build (no HTML files in tools/diagrams)")
+        return
+    os.makedirs(PROJECT_IMG_DIR, exist_ok=True)
+    for page in pages:
+        stem = os.path.splitext(page)[0]
+        tmp_png = os.path.join(tempfile.gettempdir(), "cv-diagram-%s-%d.png" % (stem, os.getpid()))
+        run_browser(exe, ["--window-size=1200,675", "--force-device-scale-factor=2",
+                          "--screenshot=" + tmp_png, base + "/tools/diagrams/" + page + "?build=diagram"], tmp_png)
+        im = Image.open(tmp_png).convert("RGB")
+        full = os.path.join(PROJECT_IMG_DIR, stem + ".jpg")
+        thumb = os.path.join(PROJECT_IMG_DIR, stem + "-thumb.jpg")
+        im.resize((1200, 675), Image.LANCZOS).save(full, "JPEG", quality=86, optimize=True, progressive=True)
+        im.resize((800, 450), Image.LANCZOS).save(thumb, "JPEG", quality=82, optimize=True, progressive=True)
+        os.remove(tmp_png)
+        print("DIAG -> %s (%d KB) + thumb" % (os.path.relpath(full, ROOT), os.path.getsize(full) // 1024))
+
+
 def main():
     what = (sys.argv[1] if len(sys.argv) > 1 else "all").lower()
-    if what not in ("all", "pdf", "og"):
+    if what not in ("all", "pdf", "og", "diagrams"):
         sys.exit(__doc__)
     stamp_date()
     exe = find_browser()
@@ -141,6 +168,8 @@ def main():
             build_pdf(exe, base)
         if what in ("all", "og"):
             build_og(exe, base)
+        if what == "diagrams":
+            build_diagrams(exe, base)
     finally:
         server.shutdown()
 

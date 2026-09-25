@@ -137,7 +137,11 @@ window.CV_DATA = {
       icon: "chart",
       items: [
         "Financial analysis",
-        "Risk & money management"
+        "Technical analysis",
+        "Risk & money management",
+        "Position sizing & drawdown control",
+        "Trade journaling & performance review",
+        "Statistics & biostatistics"
       ]
     },
     {
@@ -163,11 +167,13 @@ window.CV_DATA = {
 
   /* ---------- Projects & Portfolio ----------
      Optional per project: "period" (year or range), "status" (small badge next to the name),
-     "image" / "thumb" (screenshot shown on the card and opened full-size when clicked), "link" (button). */
+     "image" / "thumb" (picture shown on the card and opened full-size when clicked), "link" (button).
+     "featured: true" turns a project with a picture into a wide card (picture left, text right). */
   projectsIntro: "A selection of tools I have built to solve real problems in finance, trading and tax compliance.",
   projects: [
     {
       name: "SoloTax",
+      featured: true,
       period: "2026",
       status: "In development",
       description: "Mobile app that helps Vietnamese freelancers work out which tax category they fall into, estimate what they owe and follow a step-by-step compliance checklist, driven by a rule-based engine that models the current tax rules.",
@@ -184,9 +190,9 @@ window.CV_DATA = {
       status: "In daily use",
       description: "Master/slave trade copier for MetaTrader 5 with a web dashboard, built around risk control: every copied trade is sized from a pre-defined risk per account rather than a fixed lot, stop-loss and take-profit levels stay synchronised across all accounts, and the dashboard tracks results, drawdown and trade statistics across accounts and strategies to support disciplined, data-driven reviews.",
       tech: ["MQL5", "Python", "TypeScript", "MetaTrader 5"],
-      image: "",
-      thumb: "",
-      imageAlt: "",
+      image: "assets/projects/mt5-trade-copier-architecture.jpg",
+      thumb: "assets/projects/mt5-trade-copier-architecture-thumb.jpg",
+      imageAlt: "Architecture diagram: dashboard, master EA, shared signal folder, slave EAs with risk engine and broker execution",
       link: "",
       linkLabel: "View project"
     },
@@ -196,9 +202,9 @@ window.CV_DATA = {
       status: "Completed",
       description: "Browser-based tool that scans perpetual-futures funding rates across crypto exchanges and highlights potential funding-rate arbitrage opportunities.",
       tech: ["JavaScript", "Exchange APIs", "Crypto derivatives"],
-      image: "",
-      thumb: "",
-      imageAlt: "",
+      image: "assets/projects/funding-rate-scanner-architecture.jpg",
+      thumb: "assets/projects/funding-rate-scanner-architecture-thumb.jpg",
+      imageAlt: "Architecture diagram: exchange APIs, fetch layer, normalisation, cross-venue comparison, ranked table, filters and calculator",
       link: "",
       linkLabel: "View project"
     },
@@ -208,9 +214,9 @@ window.CV_DATA = {
       status: "In use",
       description: "Local system of three services that collects tax news from RSS and web sources, analyses policy changes and builds a traceable repository of legal documents to feed SoloTax.",
       tech: ["Data pipeline", "SQLite", "HTTP services", "Web scraping"],
-      image: "",
-      thumb: "",
-      imageAlt: "",
+      image: "assets/projects/tax-intelligence-pipeline-architecture.jpg",
+      thumb: "assets/projects/tax-intelligence-pipeline-architecture-thumb.jpg",
+      imageAlt: "Architecture diagram: news sources and official documents feeding Collector, Analyzer and Legal module, human review, then SoloTax",
       link: "",
       linkLabel: "View project"
     }
