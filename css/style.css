@@ -331,7 +331,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .tl-body { min-width: 0; }
 
 /* Optional diploma / certificate cover on a timeline card */
-.card.has-image { display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 22px; align-items: start; }
+.tl-item .card.has-image { display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 22px; align-items: start; }
 .tl-thumb {
   display: block; position: relative; width: 132px; aspect-ratio: 5 / 7; border-radius: 12px; overflow: hidden;
   background: var(--surface-2); border: 1px solid var(--border); box-shadow: var(--shadow-sm);
@@ -501,7 +501,7 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .card { padding: 20px 20px; }
   .timeline { padding-left: 24px; }
   .tl-item::before { left: -21px; }
-  .card.has-image { grid-template-columns: 1fr; gap: 16px; }
+  .tl-item .card.has-image { grid-template-columns: 1fr; gap: 16px; }
   .tl-thumb { width: 116px; }
 }
 
@@ -578,7 +578,7 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .languages h3 { font-size: 10pt; margin-bottom: 6px; }
 
   .lightbox, .cert-thumb, .tl-thumb { display: none !important; }
-  .card.has-image { display: block; }
+  .tl-item .card.has-image { display: block; }
   .cert-body { padding: 12px 14px; }
   .certs-groups { gap: 14px; }
   .certs-group-title { font-size: 8.5pt; margin-bottom: 8px; break-after: avoid; page-break-after: avoid; }
