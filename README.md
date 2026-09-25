@@ -52,7 +52,8 @@ python tools/build.py
 Lệnh trên cần Microsoft Edge hoặc Google Chrome có sẵn trên máy; nó dựng lại cả PDF lẫn
 ảnh xem trước khi chia sẻ link (`assets/og-image.jpg`, 1200×630). Chạy
 `python tools/build.py pdf` hoặc `python tools/build.py og` nếu chỉ cần một trong hai,
-rồi commit và push các file vừa sinh.
+rồi commit và push các file vừa sinh. Script cũng tự ghi tháng hiện tại vào `lastUpdated`
+trong `data.js` (dòng "Last updated" ở chân trang và cuối PDF).
 
 Nếu để `pdfFile: ""` trong `data.js`, nút Download quay về mở hộp thoại in của trình
 duyệt (chọn máy in **Save as PDF**).

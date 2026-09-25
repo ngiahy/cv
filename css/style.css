@@ -371,10 +371,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section.alt .chip { background: var(--surface); }
 
 /* ---------- Projects ---------- */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 20px; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); gap: 20px; }
 .project-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
 .project-body { display: flex; flex-direction: column; gap: 12px; flex: 1; padding: 24px 26px; min-width: 0; }
 .project-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; }
+.project-meta { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--muted); font-size: .88rem; margin-top: -4px; }
+.project-meta span { display: inline-flex; align-items: center; gap: 6px; }
+.project-meta svg { width: 14px; height: 14px; flex: none; }
 .project-card h3 { font-size: 1.1rem; }
 .project-card p { color: var(--text-2); flex: 1; font-size: .96rem; }
 .project-thumb {
@@ -383,6 +386,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
 .project-thumb:hover img { transform: scale(1.02); }
+/* A project with a picture becomes a wide card: picture on the left, text on the right */
+.project-card.has-image { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+.project-card.has-image .project-thumb { border-bottom: 0; border-right: 1px solid var(--border); }
+.project-card.has-image .project-body { align-self: center; }
+@media (max-width: 1000px) {
+  .project-card.has-image { grid-template-columns: 1fr; }
+  .project-card.has-image .project-thumb { border-right: 0; border-bottom: 1px solid var(--border); }
+}
 .project-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: .9rem; }
 .project-link svg { width: 15px; height: 15px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -560,7 +571,7 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .highlights li::before { width: 6px; height: 6px; }
 
   /* Sections */
-  .section, .highlights-wrap + .section { padding: 7px 0 2px; }
+  .section, .highlights-wrap + .section { padding: 6px 0 2px; }
   .section.alt { background: transparent; }
   .section-head { margin-bottom: 5px; break-inside: avoid; page-break-inside: avoid; break-after: avoid; page-break-after: avoid; }
   .eyebrow { display: none; }
@@ -603,9 +614,12 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .chip { padding: 2px 7px; font-size: 7.4pt; }
 
   /* Projects */
-  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 5px; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
   .project-card { padding: 0; }
-  .project-body { padding: 7px 9px; gap: 4px; }
+  .project-card.has-image { grid-column: auto; display: block; }
+  .project-meta { font-size: 7.6pt; margin-top: -2px; }
+  .project-meta svg { width: 10px; height: 10px; }
+  .project-body { padding: 6px 9px; gap: 3px; }
   .project-head { gap: 2px 8px; }
   .project-card h3 { font-size: 9.2pt; }
   .project-card p { font-size: 8pt; }
@@ -614,10 +628,10 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .project-link { font-size: 7.6pt; }
 
   /* Certifications */
-  .certs-groups { gap: 5px; }
+  .certs-groups { gap: 4px; }
   .certs-group-title { font-size: 7.2pt; margin-bottom: 4px; gap: 8px; break-after: avoid; page-break-after: avoid; }
-  .certs-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
-  .cert-body { padding: 5px 8px; gap: 0; }
+  .certs-grid { grid-template-columns: repeat(3, 1fr); gap: 3px; }
+  .cert-body { padding: 4px 8px; gap: 0; }
   .cert-card h3 { font-size: 8.2pt; margin-bottom: 1px; }
   .cert-card .meta, .cert-card .score { font-size: 7.4pt; margin-bottom: 1px; }
   .cert-card .score { margin-bottom: 0; }
@@ -635,7 +649,7 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .languages h3 { font-size: 8.6pt; margin-bottom: 0; }
   .languages h3 svg { width: 12px; height: 12px; }
 
-  .print-note { display: block; margin-top: 10px; padding-top: 5px; border-top: 1px solid #d5dfde; font-size: 7.2pt; color: #555; }
+  .print-note { display: block; margin-top: 6px; padding-top: 5px; border-top: 1px solid #d5dfde; font-size: 7.2pt; color: #555; }
 
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   a { color: inherit; }

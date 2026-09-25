@@ -34,7 +34,7 @@ window.CV_DATA = {
 
   /* ---------- "At a glance" cards under the hero ---------- */
   highlights: [
-    "Graduate in Preventive Medicine",
+    "Doctor of Preventive Medicine (2022)",
     "Funded trader with FTMO & The5ers",
     "Venture research & DeFi community",
     "Self-built trading & fintech tools"
@@ -43,13 +43,13 @@ window.CV_DATA = {
   /* ---------- About me (one string per paragraph) ---------- */
   about: [
     "I am a preventive-medicine graduate who now manages funded trading accounts for FTMO and The5ers, working every day under strict daily-loss and drawdown limits. Medical training at Can Tho University of Medicine and Pharmacy gave me a foundation in evidence-based, quantitative thinking; venture research and DeFi community work then drew me into financial markets, where I have since built a verified track record of consistent, risk-controlled trading.",
-    "My ambition is to become a professional fund manager with a career that reaches beyond Viet Nam. Trading under proprietary-firm rules has taught me discipline, risk control and consistency; what I need next is an internationally recognised academic grounding in investments, corporate finance and risk management. The Master of Finance at Massey University offers exactly that, together with a global network and the chance to grow as a global citizen."
+    "My ambition is to become a professional fund manager. Trading under proprietary-firm rules has taught me discipline, risk control and consistency; what I need next is a rigorous, internationally recognised academic grounding in investments, corporate finance and risk management, which is why I am applying to the Master of Finance at Massey University."
   ],
 
   objective: {
-    label: "Objective",
+    label: "Why Massey",
     heading: "Master of Finance (MFin) — Massey University",
-    text: "To combine hands-on trading and risk-management experience with an internationally recognised finance education, build a global professional network and grow as a global citizen, on the way to a fund-management career that is not limited to Viet Nam."
+    text: "An internationally recognised finance qualification, a global professional network and the chance to grow as a global citizen: the foundation for a fund-management career that reaches beyond Viet Nam."
   },
 
   /* ---------- Education (most recent first) ----------
@@ -91,7 +91,7 @@ window.CV_DATA = {
   /* ---------- Experience (most recent first) ---------- */
   experience: [
     {
-      role: "Funded Trader — Prop-Firm Account Manager",
+      role: "Funded Trader (Proprietary Trading Accounts)",
       company: "FTMO · The5ers",
       location: "Remote",
       period: "2025 – Present",
@@ -162,13 +162,14 @@ window.CV_DATA = {
   ],
 
   /* ---------- Projects & Portfolio ----------
-     Optional per project: "status" (small badge next to the name), "image" / "thumb"
-     (screenshot shown on the card and opened full-size when clicked), "link" (button). */
+     Optional per project: "period" (year or range), "status" (small badge next to the name),
+     "image" / "thumb" (screenshot shown on the card and opened full-size when clicked), "link" (button). */
   projectsIntro: "A selection of tools I have built to solve real problems in finance, trading and tax compliance.",
   projects: [
     {
       name: "SoloTax",
-      status: "",
+      period: "2026",
+      status: "In development",
       description: "Mobile app that helps Vietnamese freelancers work out which tax category they fall into, estimate what they owe and follow a step-by-step compliance checklist, driven by a rule-based engine that models the current tax rules.",
       tech: ["React Native", "Expo", "TypeScript", "Rule-based engine"],
       image: "assets/projects/solotax-app-preview.jpg",
@@ -179,7 +180,8 @@ window.CV_DATA = {
     },
     {
       name: "MT5 Trade Copier & Risk Dashboard",
-      status: "",
+      period: "2025 – 2026",
+      status: "In daily use",
       description: "Master/slave trade copier for MetaTrader 5 with a web dashboard, built around risk control: every copied trade is sized from a pre-defined risk per account rather than a fixed lot, stop-loss and take-profit levels stay synchronised across all accounts, and the dashboard tracks results, drawdown and trade statistics across accounts and strategies to support disciplined, data-driven reviews.",
       tech: ["MQL5", "Python", "TypeScript", "MetaTrader 5"],
       image: "",
@@ -190,7 +192,8 @@ window.CV_DATA = {
     },
     {
       name: "Funding-Rate Arbitrage Scanner",
-      status: "",
+      period: "2024",
+      status: "Completed",
       description: "Browser-based tool that scans perpetual-futures funding rates across crypto exchanges and highlights potential funding-rate arbitrage opportunities.",
       tech: ["JavaScript", "Exchange APIs", "Crypto derivatives"],
       image: "",
@@ -201,7 +204,8 @@ window.CV_DATA = {
     },
     {
       name: "Tax Intelligence Pipeline",
-      status: "",
+      period: "2026",
+      status: "In use",
       description: "Local system of three services that collects tax news from RSS and web sources, analyses policy changes and builds a traceable repository of legal documents to feed SoloTax.",
       tech: ["Data pipeline", "SQLite", "HTTP services", "Web scraping"],
       image: "",

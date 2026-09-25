@@ -8,6 +8,7 @@
 Needs Microsoft Edge or Google Chrome installed (headless mode is used).
 The preview image additionally needs Pillow (pip install pillow).
 Run it after every change to js/data.js, then commit the regenerated files.
+It also sets lastUpdated in js/data.js to the current month.
 """
 import os
 import re
@@ -24,6 +25,22 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDF_OUT = os.path.join(ROOT, "assets", "Nguyen-Gia-Hy-CV.pdf")
 OG_OUT = os.path.join(ROOT, "assets", "og-image.jpg")
+DATA_JS = os.path.join(ROOT, "js", "data.js")
+MONTHS = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"]
+
+
+def stamp_date():
+    """Set lastUpdated in js/data.js to the current month so the site and PDF carry today's date."""
+    now = time.localtime()
+    label = "%s %d" % (MONTHS[now.tm_mon - 1], now.tm_year)
+    with open(DATA_JS, encoding="utf-8") as f:
+        s = f.read()
+    new, n = re.subn(r'(lastUpdated:\s*")[^"]*(")', lambda m: m.group(1) + label + m.group(2), s, count=1)
+    if n and new != s:
+        with open(DATA_JS, "w", encoding="utf-8", newline="\n") as f:
+            f.write(new)
+        print("DATE -> lastUpdated set to %s in js/data.js" % label)
 
 
 def find_browser():
@@ -116,6 +133,7 @@ def main():
     what = (sys.argv[1] if len(sys.argv) > 1 else "all").lower()
     if what not in ("all", "pdf", "og"):
         sys.exit(__doc__)
+    stamp_date()
     exe = find_browser()
     server, base = serve()
     try:

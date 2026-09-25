@@ -201,6 +201,7 @@
           '<div class="project-head"><h3>' + esc(p.name) + '</h3>' +
             (has(p.status) ? '<span class="badge">' + esc(p.status) + '</span>' : '') +
           '</div>' +
+          (has(p.period) ? '<div class="project-meta"><span>' + icon('calendar') + esc(p.period) + '</span></div>' : '') +
           (has(p.description) ? '<p>' + esc(p.description) + '</p>' : '') +
           (has(p.tech) ? '<div class="tags">' + p.tech.map(function (t) {
             return '<span class="tag">' + esc(t) + '</span>';
@@ -345,7 +346,6 @@
   function renderFooter() {
     var bits = ['© ' + new Date().getFullYear() + ' ' + esc(D.name || '')];
     if (has(D.lastUpdated)) { bits.push('Last updated ' + esc(D.lastUpdated)); }
-    bits.push('Built with HTML, CSS &amp; JavaScript');
     $('#footer-text').innerHTML = bits.join(' &nbsp;·&nbsp; ');
   }
 
