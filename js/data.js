@@ -218,7 +218,7 @@ window.CV_DATA = {
   /* ---------- Languages (shown in the Contact section) ---------- */
   languages: [
     { name: "Vietnamese", level: "Native" },
-    { name: "English", level: "Professional working proficiency" },
+    { name: "English", level: "Conversational" },
     { name: "Chinese (Mandarin)", level: "Elementary · HSK 1 equivalent" }
   ]
 };
