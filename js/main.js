@@ -143,15 +143,28 @@
       if (has(it.location)) { meta.push('<span>' + icon('pin') + esc(it.location) + '</span>'); }
       if (has(it.type))     { meta.push('<span>' + icon(kind === 'edu' ? 'cap' : 'briefcase') + esc(it.type) + '</span>'); }
 
-      return '<article class="tl-item reveal"><div class="card">' +
-        '<div class="tl-head"><h3>' + esc(title) + '</h3>' +
-          (has(it.badge) ? '<span class="badge">' + esc(it.badge) + '</span>' : '') +
+      // Optional picture of the diploma / certificate cover, opened in the lightbox
+      var hasImg = has(it.image);
+      var caption = has(it.imageCaption) ? it.imageCaption : title;
+      var thumb = hasImg
+        ? '<a class="tl-thumb" href="' + esc(it.image) + '" data-lightbox data-caption="' + esc(caption) + '" aria-label="View: ' + esc(caption) + '">' +
+            '<img src="' + esc(it.thumb || it.image) + '" alt="' + esc(caption) + '" loading="lazy">' +
+            '<span class="cert-zoom">' + icon('zoom') + 'View</span>' +
+          '</a>'
+        : '';
+
+      return '<article class="tl-item reveal"><div class="card' + (hasImg ? ' has-image' : '') + '">' +
+        '<div class="tl-body">' +
+          '<div class="tl-head"><h3>' + esc(title) + '</h3>' +
+            (has(it.badge) ? '<span class="badge">' + esc(it.badge) + '</span>' : '') +
+          '</div>' +
+          (has(org) ? '<p class="tl-org">' + esc(org) + '</p>' : '') +
+          (meta.length ? '<div class="tl-meta">' + meta.join('') + '</div>' : '') +
+          (has(it.details) ? '<ul class="bullets">' + it.details.map(function (d) {
+            return '<li>' + esc(d) + '</li>';
+          }).join('') + '</ul>' : '') +
         '</div>' +
-        (has(org) ? '<p class="tl-org">' + esc(org) + '</p>' : '') +
-        (meta.length ? '<div class="tl-meta">' + meta.join('') + '</div>' : '') +
-        (has(it.details) ? '<ul class="bullets">' + it.details.map(function (d) {
-          return '<li>' + esc(d) + '</li>';
-        }).join('') + '</ul>' : '') +
+        thumb +
       '</div></article>';
     }).join('');
   }

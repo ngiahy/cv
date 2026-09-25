@@ -50,7 +50,9 @@ window.CV_DATA = {
     text: "To combine hands-on trading and risk-management experience with a rigorous academic foundation in finance, and to build a career as a professional fund manager."
   },
 
-  /* ---------- Education (most recent first) ---------- */
+  /* ---------- Education (most recent first) ----------
+     Optional "image" / "thumb": a picture of the diploma cover shown on the card and
+     opened full-size when clicked. Leave both "" for a text-only card. */
   education: [
     {
       degree: "Doctor of Preventive Medicine",
@@ -62,7 +64,10 @@ window.CV_DATA = {
       details: [
         "Full-time medical degree covering clinical medicine, epidemiology, biostatistics and public health; degree conferred July 2022.",
         "Developed a rigorous, evidence-based and quantitative approach to problem solving that I now apply to financial analysis."
-      ]
+      ],
+      image: "assets/education/ctump-doctor-degree-cover.jpg",
+      thumb: "assets/education/ctump-doctor-degree-cover-thumb.jpg",
+      imageCaption: "Doctor's degree — Can Tho University of Medicine and Pharmacy (cover)"
     },
     {
       degree: "Business Administration — Professional Training",
@@ -74,7 +79,10 @@ window.CV_DATA = {
       details: [
         "Practical training in business administration: strategy, operations, marketing and financial fundamentals.",
         "Course certificate awarded November 2024."
-      ]
+      ],
+      image: "assets/education/pr-coaching-certificate-cover.jpg",
+      thumb: "assets/education/pr-coaching-certificate-cover-thumb.jpg",
+      imageCaption: "Business Administration course certificate — PR Coaching JSC (cover)"
     }
   ],
 

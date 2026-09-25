@@ -8,3 +8,6 @@ Thumbs.db
 
 # Photos / scans of certificates for me to read (never published)
 _certs-input/
+
+# Local screenshots / PDF checks
+_shots/
