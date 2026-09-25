@@ -185,7 +185,8 @@
 
   /* ---------- Render: certifications ---------- */
   function renderCerts() {
-    $('#certifications-grid').innerHTML = (D.certifications || []).map(function (c) {
+    var items = D.certifications || [];
+    function card(c) {
       var meta = [c.issuer, c.year].filter(has).join(' · ');
       return '<article class="card cert-card reveal">' +
         '<span class="ico">' + icon('award') + '</span>' +
@@ -196,6 +197,30 @@
           (has(c.link) ? '<a class="project-link"' + extLink(c.link) + '>Verify' + icon('external') + '</a>' : '') +
         '</div>' +
       '</article>';
+    }
+
+    var container = $('#certifications-grid');
+    var grouped = items.some(function (c) { return has(c.group); });
+    if (!grouped) {
+      container.className = 'certs-grid';
+      container.innerHTML = items.map(card).join('');
+      return;
+    }
+
+    // Keep groups in the order they first appear in the data
+    var order = [];
+    var byGroup = {};
+    items.forEach(function (c) {
+      var g = has(c.group) ? c.group : 'Other';
+      if (!byGroup[g]) { byGroup[g] = []; order.push(g); }
+      byGroup[g].push(c);
+    });
+    container.className = 'certs-groups';
+    container.innerHTML = order.map(function (g) {
+      return '<div class="certs-group">' +
+        '<h3 class="certs-group-title reveal">' + esc(g) + '</h3>' +
+        '<div class="certs-grid">' + byGroup[g].map(card).join('') + '</div>' +
+      '</div>';
     }).join('');
   }
 

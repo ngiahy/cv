@@ -56,11 +56,11 @@ window.CV_DATA = {
       degree: "Doctor of Preventive Medicine",
       school: "Can Tho University of Medicine and Pharmacy",
       location: "Can Tho, Viet Nam",
-      period: "",                      // e.g. "2014 – 2020"
+      period: "2016 – 2022",
       type: "Medical degree",
       badge: "",
       details: [
-        "Full-time medical degree covering clinical medicine, epidemiology, biostatistics and public health.",
+        "Full-time medical degree covering clinical medicine, epidemiology, biostatistics and public health; degree conferred July 2022.",
         "Developed a rigorous, evidence-based and quantitative approach to problem solving that I now apply to financial analysis."
       ]
     },
@@ -68,22 +68,12 @@ window.CV_DATA = {
       degree: "Business Administration — Professional Training",
       school: "PR Coaching Joint Stock Company",
       location: "Viet Nam",
-      period: "",
-      type: "Professional training",
+      period: "2023 – 2024",
+      type: "Course certificate",
       badge: "",
       details: [
-        "Practical training in business administration: strategy, operations, marketing and financial fundamentals."
-      ]
-    },
-    {
-      degree: "Fund & Risk Management — Proprietary-Trading Programmes",
-      school: "FTMO · The5ers · OANDA",
-      location: "Online",
-      period: "",
-      type: "Trader education",
-      badge: "",
-      details: [
-        "Structured education in capital allocation, position sizing, drawdown control and trading psychology, applied under the strict risk rules of proprietary-trading firms."
+        "Practical training in business administration: strategy, operations, marketing and financial fundamentals.",
+        "Course certificate awarded November 2024."
       ]
     }
   ],
@@ -94,37 +84,38 @@ window.CV_DATA = {
       role: "Funded Trader — Prop-Firm Account Manager",
       company: "FTMO · The5ers",
       location: "Remote",
-      period: "Present",               // e.g. "2024 – Present"
+      period: "2025 – Present",
       type: "Proprietary trading",
       badge: "Current",
       details: [
         "Manage funded proprietary-trading accounts under strict risk parameters, including daily-loss and maximum-drawdown limits.",
         "Follow a systematic risk-management process: pre-defined risk per trade, position sizing, trade journaling and regular performance reviews.",
+        "Track record: FTMO Prime Trader status and Silver-tier overall rewards of USD 19,684 (April 2026); The5ers cumulative payouts of USD 9,533 (December 2025).",
         "Research, test and refine trading strategies, supported by Python and Excel analysis."
-      ]
-    },
-    {
-      role: "Ambassador",
-      company: "Roseon Finance",
-      location: "Remote",
-      period: "",
-      type: "DeFi · Community",
-      badge: "",
-      details: [
-        "Represented Roseon Finance to the Vietnamese community: introduced the product, answered user questions and relayed feedback to the team.",
-        "Created educational content on DeFi and digital-asset fundamentals to help new users get started safely."
       ]
     },
     {
       role: "Researcher",
       company: "BlackMamba Venture",
       location: "Remote",
-      period: "",
+      period: "2024",
       type: "Venture research",
       badge: "",
       details: [
         "Researched and evaluated early-stage blockchain and fintech projects, covering tokenomics, team, market size and competitive landscape.",
         "Produced concise research reports to support investment decisions."
+      ]
+    },
+    {
+      role: "Ambassador",
+      company: "Roseon Finance",
+      location: "Remote",
+      period: "2023",
+      type: "DeFi · Community",
+      badge: "",
+      details: [
+        "Represented Roseon Finance to the Vietnamese community: introduced the product, answered user questions and relayed feedback to the team.",
+        "Created educational content on DeFi and digital-asset fundamentals to help new users get started safely."
       ]
     }
   ],
@@ -201,14 +192,33 @@ window.CV_DATA = {
   ],
 
   /* ---------- Certifications & Tests ----------
-     Leave the list empty [] to hide the section. Example entries:
-     { name: "IELTS Academic", issuer: "British Council", year: "2026", score: "Overall 7.0 (L 7.5 · R 7.0 · W 6.5 · S 7.0)", link: "" },
-     { name: "CFA Level I", issuer: "CFA Institute", year: "2025", score: "Passed", link: "" }
+     Leave the list empty [] to hide the section. Items with the same "group"
+     are shown together under that heading, in the order they first appear.
+     Example: { group: "Tests", name: "IELTS Academic", issuer: "British Council", year: "2026", score: "Overall 7.0", link: "" }
   */
-  certifications: [],
+  certifications: [
+    /* Trading credentials */
+    { group: "Trading credentials", name: "FTMO Prime Trader", issuer: "FTMO", year: "Apr 2026", score: "Prime Trader status awarded", link: "" },
+    { group: "Trading credentials", name: "FTMO Overall Rewards — Silver Tier", issuer: "FTMO", year: "Apr 2026", score: "USD 19,684 in cumulative rewards", link: "" },
+    { group: "Trading credentials", name: "OANDA Prop Trader Assessment", issuer: "OANDA Assessments Ltd", year: "Jan 2026", score: "Passed", link: "" },
+    { group: "Trading credentials", name: "The5ers Total Payouts", issuer: "The5ers", year: "Dec 2025", score: "USD 9,533 in cumulative payouts", link: "" },
+    { group: "Trading credentials", name: "The5ers Funded Trader Certificate", issuer: "The5ers", year: "Nov 2025", score: "Officially funded after meeting the programme's risk parameters", link: "" },
+    { group: "Trading credentials", name: "FTMO Challenge & Verification", issuer: "FTMO", year: "Jun 2025", score: "Passed both evaluation phases", link: "" },
 
-  /* ---------- Languages (shown in the Contact section) ----------
-     Example: { name: "Vietnamese", level: "Native" }, { name: "English", level: "Professional working proficiency" }
-  */
-  languages: []
+    /* Courses & languages */
+    { group: "Courses & languages", name: "Chinese Language Course — HSK 1 equivalent", issuer: "Can Tho Chinese Language Centre", year: "Nov 2023", score: "Grade: Excellent (9.0 / 10)", link: "" },
+    { group: "Courses & languages", name: "Physiotherapy Student Presentations — Certificate of Attendance", issuer: "La Trobe University", year: "Dec 2020", score: "Community Engagement Experience programme", link: "" },
+
+    /* Awards & activities */
+    { group: "Awards & activities", name: "Best Speaker Award", issuer: "Cantho Leader Toastmasters · Toastmasters International", year: "Aug 2018", score: "", link: "" },
+    { group: "Awards & activities", name: "Regional Youth Forum 2018 — Certificate of Completion", issuer: "Center for Sustainable Development Studies (CSDS) · Irish Aid", year: "Sep 2018", score: "", link: "" },
+    { group: "Awards & activities", name: "Encouragement Award — Student Scientific Research Ideas Competition 2018", issuer: "Youth Union, Can Tho University of Medicine and Pharmacy", year: "Jan 2018", score: "", link: "" }
+  ],
+
+  /* ---------- Languages (shown in the Contact section) ---------- */
+  languages: [
+    { name: "Vietnamese", level: "Native" },
+    { name: "English", level: "Professional working proficiency" },
+    { name: "Chinese (Mandarin)", level: "Elementary · HSK 1 equivalent" }
+  ]
 };
