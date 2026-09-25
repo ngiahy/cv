@@ -484,9 +484,10 @@
   function initPrint() {
     var btn = $('#print-btn');
     if (has(D.pdfFile)) {
-      // Serve the pre-built PDF so every browser gets the same two-page file
+      // Open the pre-built PDF in a new tab: the browser viewer shows a preview and offers its own save / print buttons
       btn.setAttribute('href', D.pdfFile);
-      btn.setAttribute('download', D.pdfFile.split('/').pop());
+      btn.setAttribute('target', '_blank');
+      btn.setAttribute('rel', 'noopener');
     } else {
       btn.setAttribute('href', '#');
       btn.setAttribute('title', 'Save this CV as a PDF (choose Save as PDF in the print dialog)');
