@@ -436,6 +436,9 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
 .languages h3 { display: flex; align-items: center; gap: 8px; font-size: 1.05rem; margin-bottom: 12px; }
 .languages h3 svg { width: 18px; height: 18px; color: var(--accent); }
 
+/* Line that only appears in the printed / PDF version */
+.print-note { display: none; }
+
 /* ---------- Lightbox ---------- */
 .no-scroll { overflow: hidden; }
 .lightbox {
@@ -629,6 +632,8 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .languages { margin-top: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 5px 8px; }
   .languages h3 { font-size: 8.6pt; margin-bottom: 0; }
   .languages h3 svg { width: 12px; height: 12px; }
+
+  .print-note { display: block; margin-top: 10px; padding-top: 5px; border-top: 1px solid #d5dfde; font-size: 7.2pt; color: #555; }
 
   .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   a { color: inherit; }

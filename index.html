@@ -10,6 +10,16 @@
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Nguyen Gia Hy — Curriculum Vitae">
   <meta property="og:description" content="Funded trader and aspiring fund manager with a medical-science background, preparing for the Master of Finance at Massey University.">
+  <meta property="og:url" content="https://ngiahy.github.io/cv/">
+  <meta property="og:image" content="https://ngiahy.github.io/cv/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nguyen Gia Hy — Curriculum Vitae">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nguyen Gia Hy — Curriculum Vitae">
+  <meta name="twitter:description" content="Funded trader and aspiring fund manager with a medical-science background, preparing for the Master of Finance at Massey University.">
+  <meta name="twitter:image" content="https://ngiahy.github.io/cv/assets/og-image.jpg">
+  <link rel="canonical" href="https://ngiahy.github.io/cv/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f766e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='28' fill='white'%3EGH%3C/text%3E%3C/svg%3E">
   <script>
     /* Apply the saved theme before first paint to avoid a flash of the wrong colours */
@@ -51,10 +61,10 @@
           <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
-        <button class="btn btn-primary btn-sm" id="print-btn" type="button" title="Save this CV as a PDF (choose 'Save as PDF' in the print dialog)">
+        <a class="btn btn-primary btn-sm" id="print-btn" href="#" title="Download this CV as a PDF">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg>
           <span>Download PDF</span>
-        </button>
+        </a>
         <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
           <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -175,6 +185,9 @@
         <div class="languages reveal" id="languages"></div>
       </div>
     </section>
+
+    <!-- Shown only in the printed / PDF version -->
+    <p class="print-note" id="print-note"></p>
   </main>
 
   <footer class="site-footer">

@@ -327,6 +327,15 @@
   }
 
   /* ---------- Render: footer ---------- */
+  function renderPrintNote() {
+    var el = $('#print-note');
+    if (!el) { return; }
+    var bits = [];
+    if (has(D.siteUrl)) { bits.push('Online version with certificate images and project previews: ' + esc(prettyUrl(D.siteUrl))); }
+    if (has(D.lastUpdated)) { bits.push('Last updated ' + esc(D.lastUpdated)); }
+    if (bits.length) { el.innerHTML = bits.join(' &nbsp;·&nbsp; '); } else { el.hidden = true; }
+  }
+
   function renderFooter() {
     var bits = ['© ' + new Date().getFullYear() + ' ' + esc(D.name || '')];
     if (has(D.lastUpdated)) { bits.push('Last updated ' + esc(D.lastUpdated)); }
@@ -473,7 +482,16 @@
 
   /* ---------- Download PDF (browser print → "Save as PDF") ---------- */
   function initPrint() {
-    $('#print-btn').addEventListener('click', function () { window.print(); });
+    var btn = $('#print-btn');
+    if (has(D.pdfFile)) {
+      // Serve the pre-built PDF so every browser gets the same two-page file
+      btn.setAttribute('href', D.pdfFile);
+      btn.setAttribute('download', D.pdfFile.split('/').pop());
+    } else {
+      btn.setAttribute('href', '#');
+      btn.setAttribute('title', 'Save this CV as a PDF (choose Save as PDF in the print dialog)');
+      btn.addEventListener('click', function (e) { e.preventDefault(); window.print(); });
+    }
     window.addEventListener('beforeprint', function () {
       $$('.reveal').forEach(function (e) { e.classList.add('visible'); });
     });
@@ -490,6 +508,7 @@
     renderCerts();
     renderContact();
     renderFooter();
+    renderPrintNote();
     pruneSections();
     initTheme();
     initNav();

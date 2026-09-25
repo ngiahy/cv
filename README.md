@@ -12,6 +12,9 @@ build, chạy được trên mọi dịch vụ host tĩnh (GitHub Pages, Cloudfl
 | `js/data.js`        | **Toàn bộ nội dung CV**. Muốn sửa gì chỉ cần sửa file này.             |
 | `js/main.js`        | Đọc `data.js` và dựng trang, xử lý menu, dark mode, nút Download PDF   |
 | `assets/avatar.jpg` | Ảnh chân dung (vuông, 640×640). Xoá file này thì trang hiện chữ cái tên |
+| `assets/Nguyen-Gia-Hy-CV.pdf` | Bản PDF tĩnh mà nút Download PDF tải về (sinh bằng `tools/build.py`) |
+| `assets/og-image.jpg` | Ảnh xem trước khi chia sẻ link lên LinkedIn, Zalo, Facebook... (sinh bằng `tools/build.py`) |
+| `tools/`            | Script dựng PDF và ảnh xem trước (`build.py`) cùng mẫu ảnh xem trước (`og-image.html`) |
 | `.nojekyll`         | Báo GitHub Pages không chạy Jekyll, giữ nguyên file                     |
 
 ## Sửa nội dung CV
@@ -23,8 +26,7 @@ build, chạy được trên mọi dịch vụ host tĩnh (GitHub Pages, Cloudfl
    `certifications: []` thì mục Certifications và link menu tương ứng biến mất).
 4. Lưu file, tải lại trang. Nếu trang trắng, thường là thiếu dấu phẩy hoặc dấu ngoặc kép.
 
-Các chỗ đang chờ bổ sung: `period` (năm) của từng mục Education/Experience,
-`certifications`, `languages`, `linkedin`, và `link` của từng project.
+Các chỗ còn trống: `linkedin` và `link` của từng project.
 
 ## Xem thử trên máy
 
@@ -37,10 +39,23 @@ python -m http.server 8765
 (Mở thẳng `index.html` bằng trình duyệt cũng được, nhưng một số trình duyệt chặn ảnh
 hoặc font khi mở file trực tiếp.)
 
-## Tải PDF
+## Tải PDF và ảnh xem trước
 
-Nút **Download PDF** mở hộp thoại in của trình duyệt. Chọn máy in là **Save as PDF**
-(Chrome/Edge) rồi bấm Save. Trang đã có bố cục riêng khi in: bỏ menu, gọn khổ A4.
+Nút **Download PDF** tải file tĩnh `assets/Nguyen-Gia-Hy-CV.pdf` (2 trang A4), nên mọi
+trình duyệt đều nhận đúng một bản. File này được sinh từ chính trang web bằng bố cục in
+trong `css/style.css`. **Sau mỗi lần sửa `data.js`, chạy lại:**
+
+```bash
+python tools/build.py
+```
+
+Lệnh trên cần Microsoft Edge hoặc Google Chrome có sẵn trên máy; nó dựng lại cả PDF lẫn
+ảnh xem trước khi chia sẻ link (`assets/og-image.jpg`, 1200×630). Chạy
+`python tools/build.py pdf` hoặc `python tools/build.py og` nếu chỉ cần một trong hai,
+rồi commit và push các file vừa sinh.
+
+Nếu để `pdfFile: ""` trong `data.js`, nút Download quay về mở hộp thoại in của trình
+duyệt (chọn máy in **Save as PDF**).
 
 ## Đưa lên GitHub Pages
 

@@ -19,6 +19,8 @@ window.CV_DATA = {
   location: "Viet Nam",
   photo: "assets/avatar.jpg",          // square photo; if the file is missing, initials are shown instead
   lastUpdated: "September 2026",
+  siteUrl: "https://ngiahy.github.io/cv/",      // public address; printed at the end of the PDF
+  pdfFile: "assets/Nguyen-Gia-Hy-CV.pdf",      // static PDF served by the Download button (rebuild: python tools/build.py). Leave "" to use the browser print dialog instead
 
   /* ---------- Contact ---------- */
   contact: {
