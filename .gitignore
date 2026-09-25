@@ -11,3 +11,6 @@ _certs-input/
 
 # Local screenshots / PDF checks
 _shots/
+
+# SoloTax mock-up source (Vietnamese original + build files, never published)
+_solotax-input/

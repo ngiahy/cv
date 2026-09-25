@@ -187,13 +187,26 @@
     if (has(D.projectsIntro)) { sub.textContent = D.projectsIntro; } else { sub.hidden = true; }
 
     $('#projects-grid').innerHTML = (D.projects || []).map(function (p) {
-      return '<article class="card project-card reveal">' +
-        '<h3>' + esc(p.name) + '</h3>' +
-        (has(p.description) ? '<p>' + esc(p.description) + '</p>' : '') +
-        (has(p.tech) ? '<div class="tags">' + p.tech.map(function (t) {
-          return '<span class="tag">' + esc(t) + '</span>';
-        }).join('') + '</div>' : '') +
-        (has(p.link) ? '<a class="project-link"' + extLink(p.link) + '>' + esc(p.linkLabel || 'View project') + icon('external') + '</a>' : '') +
+      var hasImg = has(p.image);
+      var alt = has(p.imageAlt) ? p.imageAlt : p.name + ' screenshot';
+      var thumb = hasImg
+        ? '<a class="project-thumb" href="' + esc(p.image) + '" data-lightbox data-caption="' + esc(p.name) + '" aria-label="View screenshot: ' + esc(p.name) + '">' +
+            '<img src="' + esc(p.thumb || p.image) + '" alt="' + esc(alt) + '" loading="lazy">' +
+            '<span class="cert-zoom">' + icon('zoom') + 'View</span>' +
+          '</a>'
+        : '';
+      return '<article class="card project-card reveal' + (hasImg ? ' has-image' : '') + '">' +
+        thumb +
+        '<div class="project-body">' +
+          '<div class="project-head"><h3>' + esc(p.name) + '</h3>' +
+            (has(p.status) ? '<span class="badge">' + esc(p.status) + '</span>' : '') +
+          '</div>' +
+          (has(p.description) ? '<p>' + esc(p.description) + '</p>' : '') +
+          (has(p.tech) ? '<div class="tags">' + p.tech.map(function (t) {
+            return '<span class="tag">' + esc(t) + '</span>';
+          }).join('') + '</div>' : '') +
+          (has(p.link) ? '<a class="project-link"' + extLink(p.link) + '>' + esc(p.linkLabel || 'View project') + icon('external') + '</a>' : '') +
+        '</div>' +
       '</article>';
     }).join('');
   }

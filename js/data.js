@@ -159,41 +159,52 @@ window.CV_DATA = {
     }
   ],
 
-  /* ---------- Projects & Portfolio ---------- */
+  /* ---------- Projects & Portfolio ----------
+     Optional per project: "status" (small badge next to the name), "image" / "thumb"
+     (screenshot shown on the card and opened full-size when clicked), "link" (button). */
   projectsIntro: "A selection of tools I have built to solve real problems in finance, trading and tax compliance.",
   projects: [
     {
       name: "SoloTax",
-      description: "Mobile app that helps Vietnamese freelancers classify their tax obligations, estimate what they owe and follow a compliance checklist, driven by a rule-based engine that models the current tax rules.",
+      status: "Private demo build",
+      description: "Mobile app that helps Vietnamese freelancers work out which tax category they fall into, estimate what they owe and follow a step-by-step compliance checklist, driven by a rule-based engine that models the current tax rules. A working demo build (APK) exists; it is not yet publicly released.",
       tech: ["React Native", "Expo", "TypeScript", "Rule-based engine"],
+      image: "assets/projects/solotax-app-preview.jpg",
+      thumb: "assets/projects/solotax-app-preview-thumb.jpg",
+      imageAlt: "SoloTax app preview: welcome screen, income-source questionnaire and tax-estimate result",
       link: "",                        // e.g. "https://github.com/ngiahy/solotax"
       linkLabel: "View project"
     },
     {
-      name: "Tax Intelligence Pipeline",
-      description: "Local system of three services that collects tax news from RSS and web sources, analyses policy changes and builds a traceable repository of legal documents to feed SoloTax.",
-      tech: ["Data pipeline", "SQLite", "HTTP services", "Web scraping"],
-      link: "",
-      linkLabel: "View project"
-    },
-    {
-      name: "MT5 Trade Copier & Dashboard",
-      description: "Master/slave trade copier for MetaTrader 5 with a web dashboard: low-latency order replication across accounts, risk-based lot sizing and synchronised stop-loss / take-profit management.",
-      tech: ["MQL5", "Python", "MetaTrader 5"],
-      link: "",
-      linkLabel: "View project"
-    },
-    {
-      name: "Trading Performance Dashboard",
-      description: "Web dashboard for reviewing trading performance and statistics across accounts and strategies, built to support disciplined, data-driven performance reviews.",
-      tech: ["TypeScript", "Vite", "Data visualisation"],
+      name: "MT5 Trade Copier & Risk Dashboard",
+      status: "",
+      description: "Master/slave trade copier for MetaTrader 5 with a web dashboard, built around risk control: every copied trade is sized from a pre-defined risk per account rather than a fixed lot, stop-loss and take-profit levels stay synchronised across all accounts, and the dashboard tracks results, drawdown and trade statistics across accounts and strategies to support disciplined, data-driven reviews.",
+      tech: ["MQL5", "Python", "TypeScript", "MetaTrader 5"],
+      image: "",
+      thumb: "",
+      imageAlt: "",
       link: "",
       linkLabel: "View project"
     },
     {
       name: "Funding-Rate Arbitrage Scanner",
+      status: "",
       description: "Browser-based tool that scans perpetual-futures funding rates across crypto exchanges and highlights potential funding-rate arbitrage opportunities.",
       tech: ["JavaScript", "Exchange APIs", "Crypto derivatives"],
+      image: "",
+      thumb: "",
+      imageAlt: "",
+      link: "",
+      linkLabel: "View project"
+    },
+    {
+      name: "Tax Intelligence Pipeline",
+      status: "",
+      description: "Local system of three services that collects tax news from RSS and web sources, analyses policy changes and builds a traceable repository of legal documents to feed SoloTax.",
+      tech: ["Data pipeline", "SQLite", "HTTP services", "Web scraping"],
+      image: "",
+      thumb: "",
+      imageAlt: "",
       link: "",
       linkLabel: "View project"
     }

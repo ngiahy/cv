@@ -371,10 +371,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 .section.alt .chip { background: var(--surface); }
 
 /* ---------- Projects ---------- */
-.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); gap: 20px; }
-.project-card { display: flex; flex-direction: column; gap: 12px; }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 20px; }
+.project-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.project-body { display: flex; flex-direction: column; gap: 12px; flex: 1; padding: 24px 26px; min-width: 0; }
+.project-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; }
 .project-card h3 { font-size: 1.1rem; }
 .project-card p { color: var(--text-2); flex: 1; font-size: .96rem; }
+.project-thumb {
+  display: block; position: relative; aspect-ratio: 16 / 9;
+  background: var(--surface-2); border-bottom: 1px solid var(--border);
+}
+.project-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
+.project-thumb:hover img { transform: scale(1.02); }
 .project-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: .9rem; }
 .project-link svg { width: 15px; height: 15px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -499,6 +507,8 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
 
   .section { padding: 60px 0; }
   .card { padding: 20px 20px; }
+  .project-card { padding: 0; }
+  .project-body { padding: 20px 20px; }
   .timeline { padding-left: 24px; }
   .tl-item::before { left: -21px; }
   .tl-item .card.has-image { grid-template-columns: 1fr; gap: 16px; }
@@ -562,7 +572,9 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
 
   .skills-grid, .projects-grid, .certs-grid { gap: 10px; }
   .skills-grid { grid-template-columns: repeat(3, 1fr); }
-  .projects-grid { grid-template-columns: repeat(3, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card { padding: 0; }
+  .project-body { padding: 12px 14px; gap: 8px; }
   .project-card h3 { font-size: 10.5pt; }
   .chip { padding: 4px 9px; font-size: 8.5pt; }
   .project-card p { font-size: 9pt; }
@@ -577,7 +589,7 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
   .languages { margin-top: 12px; }
   .languages h3 { font-size: 10pt; margin-bottom: 6px; }
 
-  .lightbox, .cert-thumb, .tl-thumb { display: none !important; }
+  .lightbox, .cert-thumb, .tl-thumb, .project-thumb { display: none !important; }
   .tl-item .card.has-image { display: block; }
   .cert-body { padding: 12px 14px; }
   .certs-groups { gap: 14px; }
