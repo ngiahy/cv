@@ -53,6 +53,8 @@
     external: svg('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/>'),
     copy: svg('<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>'),
     lang: svg('<path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/>'),
+    zoom: svg('<circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/>'),
+    close: svg('<path d="M18 6 6 18M6 6l12 12"/>'),
     tag: svg('<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><path d="M7 7h.01"/>')
   };
   function icon(name) { return ICONS[name] || ICONS.tag; }
@@ -188,13 +190,23 @@
     var items = D.certifications || [];
     function card(c) {
       var meta = [c.issuer, c.year].filter(has).join(' · ');
-      return '<article class="card cert-card reveal">' +
-        '<span class="ico">' + icon('award') + '</span>' +
-        '<div>' +
-          '<h3>' + esc(c.name) + '</h3>' +
-          (has(meta) ? '<p class="meta">' + esc(meta) + '</p>' : '') +
-          (has(c.score) ? '<p class="score">' + esc(c.score) + '</p>' : '') +
-          (has(c.link) ? '<a class="project-link"' + extLink(c.link) + '>Verify' + icon('external') + '</a>' : '') +
+      var hasImg = has(c.image);
+      var thumb = hasImg
+        ? '<a class="cert-thumb" href="' + esc(c.image) + '" data-lightbox data-caption="' + esc(c.name) + '" aria-label="View certificate: ' + esc(c.name) + '">' +
+            '<img src="' + esc(c.thumb || c.image) + '" alt="' + esc(c.name) + ' certificate" loading="lazy">' +
+            '<span class="cert-zoom">' + icon('zoom') + 'View</span>' +
+          '</a>'
+        : '';
+      return '<article class="card cert-card reveal' + (hasImg ? ' has-image' : '') + '">' +
+        thumb +
+        '<div class="cert-body">' +
+          '<span class="ico">' + icon('award') + '</span>' +
+          '<div>' +
+            '<h3>' + esc(c.name) + '</h3>' +
+            (has(meta) ? '<p class="meta">' + esc(meta) + '</p>' : '') +
+            (has(c.score) ? '<p class="score">' + esc(c.score) + '</p>' : '') +
+            (has(c.link) ? '<a class="project-link"' + extLink(c.link) + '>Verify' + icon('external') + '</a>' : '') +
+          '</div>' +
         '</div>' +
       '</article>';
     }
@@ -394,6 +406,45 @@
     els.forEach(function (e) { io.observe(e); });
   }
 
+  /* ---------- Lightbox for certificate images ---------- */
+  function initLightbox() {
+    var box = $('#lightbox');
+    if (!box) { return; }
+    var img = $('#lightbox-img');
+    var cap = $('#lightbox-caption');
+    var closeBtn = $('#lightbox-close');
+    var lastFocus = null;
+
+    function open(src, caption) {
+      lastFocus = document.activeElement;
+      img.src = src;
+      img.alt = caption;
+      cap.textContent = caption;
+      box.hidden = false;
+      document.body.classList.add('no-scroll');
+      closeBtn.focus();
+    }
+    function close() {
+      box.hidden = true;
+      img.removeAttribute('src');
+      document.body.classList.remove('no-scroll');
+      if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+    }
+
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest ? e.target.closest('[data-lightbox]') : null;
+      if (trigger) {
+        e.preventDefault();
+        open(trigger.getAttribute('href'), trigger.getAttribute('data-caption') || '');
+        return;
+      }
+      if (!box.hidden && (e.target === box || (e.target.closest && e.target.closest('#lightbox-close')))) { close(); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !box.hidden) { close(); }
+    });
+  }
+
   /* ---------- Download PDF (browser print → "Save as PDF") ---------- */
   function initPrint() {
     $('#print-btn').addEventListener('click', function () { window.print(); });
@@ -417,6 +468,7 @@
     initTheme();
     initNav();
     initReveal();
+    initLightbox();
     initPrint();
   }
 

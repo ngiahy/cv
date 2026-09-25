@@ -198,12 +198,19 @@ window.CV_DATA = {
   */
   certifications: [
     /* Trading credentials */
-    { group: "Trading credentials", name: "FTMO Prime Trader", issuer: "FTMO", year: "Apr 2026", score: "Prime Trader status awarded", link: "" },
-    { group: "Trading credentials", name: "FTMO Overall Rewards — Silver Tier", issuer: "FTMO", year: "Apr 2026", score: "USD 19,684 in cumulative rewards", link: "" },
-    { group: "Trading credentials", name: "OANDA Prop Trader Assessment", issuer: "OANDA Assessments Ltd", year: "Jan 2026", score: "Passed", link: "" },
-    { group: "Trading credentials", name: "The5ers Total Payouts", issuer: "The5ers", year: "Dec 2025", score: "USD 9,533 in cumulative payouts", link: "" },
-    { group: "Trading credentials", name: "The5ers Funded Trader Certificate", issuer: "The5ers", year: "Nov 2025", score: "Officially funded after meeting the programme's risk parameters", link: "" },
-    { group: "Trading credentials", name: "FTMO Challenge & Verification", issuer: "FTMO", year: "Jun 2025", score: "Passed both evaluation phases", link: "" },
+    /* "image" = full-size picture opened when the card is clicked, "thumb" = small preview on the card. Leave both "" for a text-only card. */
+    { group: "Trading credentials", name: "FTMO Prime Trader", issuer: "FTMO", year: "Apr 2026", score: "Prime Trader status awarded", link: "",
+      image: "assets/certs/ftmo-prime-trader.jpg", thumb: "assets/certs/ftmo-prime-trader-thumb.jpg" },
+    { group: "Trading credentials", name: "FTMO Overall Rewards — Silver Tier", issuer: "FTMO", year: "Apr 2026", score: "USD 19,684 in cumulative rewards", link: "",
+      image: "assets/certs/ftmo-overall-rewards-silver.jpg", thumb: "assets/certs/ftmo-overall-rewards-silver-thumb.jpg" },
+    { group: "Trading credentials", name: "OANDA Prop Trader Assessment", issuer: "OANDA Assessments Ltd", year: "Jan 2026", score: "Passed", link: "",
+      image: "assets/certs/oanda-prop-trader-assessment.jpg", thumb: "assets/certs/oanda-prop-trader-assessment-thumb.jpg" },
+    { group: "Trading credentials", name: "The5ers Total Payouts", issuer: "The5ers", year: "Dec 2025", score: "USD 9,533 in cumulative payouts", link: "",
+      image: "assets/certs/the5ers-total-payouts.jpg", thumb: "assets/certs/the5ers-total-payouts-thumb.jpg" },
+    { group: "Trading credentials", name: "The5ers Funded Trader Certificate", issuer: "The5ers", year: "Nov 2025", score: "Officially funded after meeting the programme's risk parameters", link: "",
+      image: "assets/certs/the5ers-funded-certificate.jpg", thumb: "assets/certs/the5ers-funded-certificate-thumb.jpg" },
+    { group: "Trading credentials", name: "FTMO Challenge & Verification", issuer: "FTMO", year: "Jun 2025", score: "Passed both evaluation phases", link: "",
+      image: "assets/certs/ftmo-challenge-verification.jpg", thumb: "assets/certs/ftmo-challenge-verification-thumb.jpg" },
 
     /* Courses & languages */
     { group: "Courses & languages", name: "Chinese Language Course — HSK 1 equivalent", issuer: "Can Tho Chinese Language Centre", year: "Nov 2023", score: "Grade: Excellent (9.0 / 10)", link: "" },
