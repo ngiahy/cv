@@ -73,7 +73,7 @@ window.CV_DATA = {
       degree: "Business Administration — Professional Training",
       school: "PR Coaching Joint Stock Company",
       location: "Viet Nam",
-      period: "2023 – 2024",
+      period: "2024 – 2025",
       type: "Course certificate",
       badge: "",
       details: [
