@@ -40,14 +40,14 @@ window.CV_DATA = {
 
   /* ---------- About me (one string per paragraph) ---------- */
   about: [
-    "I am a lifelong learner who is constantly seeking out new knowledge and testing the limits of what I can do. I graduated in Preventive Medicine from Can Tho University of Medicine and Pharmacy, where I built a strong foundation in quantitative, evidence-based thinking. I have since channelled that same rigour into financial markets, moving from venture research and DeFi community work to managing funded trading accounts with FTMO and The5ers.",
-    "My ambition is to become a professional fund manager. Trading under strict proprietary-firm risk rules has taught me discipline, risk control and consistency. The Master of Finance at Massey University is the essential next step: it will give me the rigorous academic grounding in investments, corporate finance and risk management that a professional fund manager needs."
+    "I am a preventive-medicine graduate who now manages funded trading accounts for FTMO and The5ers, working every day under strict daily-loss and drawdown limits. Medical training at Can Tho University of Medicine and Pharmacy gave me a foundation in evidence-based, quantitative thinking; venture research and DeFi community work then drew me into financial markets, where I have since built a verified track record of consistent, risk-controlled trading.",
+    "My ambition is to become a professional fund manager with a career that reaches beyond Viet Nam. Trading under proprietary-firm rules has taught me discipline, risk control and consistency; what I need next is an internationally recognised academic grounding in investments, corporate finance and risk management. The Master of Finance at Massey University offers exactly that, together with a global network and the chance to grow as a global citizen."
   ],
 
   objective: {
     label: "Objective",
     heading: "Master of Finance (MFin) — Massey University",
-    text: "To combine hands-on trading and risk-management experience with a rigorous academic foundation in finance, and to build a career as a professional fund manager."
+    text: "To combine hands-on trading and risk-management experience with an internationally recognised finance education, build a global professional network and grow as a global citizen, on the way to a fund-management career that is not limited to Viet Nam."
   },
 
   /* ---------- Education (most recent first) ----------
@@ -99,7 +99,7 @@ window.CV_DATA = {
         "Manage funded proprietary-trading accounts under strict risk parameters, including daily-loss and maximum-drawdown limits.",
         "Follow a systematic risk-management process: pre-defined risk per trade, position sizing, trade journaling and regular performance reviews.",
         "Track record: FTMO Prime Trader status and Silver-tier overall rewards of USD 19,684 (April 2026); The5ers cumulative payouts of USD 9,533 (December 2025).",
-        "Research, test and refine trading strategies, supported by Python and Excel analysis."
+        "Research, test and refine trading strategies, supported by Python-based analysis."
       ]
     },
     {
