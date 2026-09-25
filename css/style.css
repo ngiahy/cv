@@ -413,6 +413,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .cert-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
 .cert-card .meta { color: var(--muted); font-size: .9rem; margin-bottom: 4px; }
 .cert-card .score { font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+.cert-view { margin-top: 4px; }
+.cert-view + .project-link { margin-left: 14px; }
 
 .certs-groups { display: grid; gap: 34px; }
 .certs-group-title {
@@ -536,7 +538,7 @@ a.contact-card:hover { text-decoration: none; border-color: var(--accent); }
 
   /* Screen-only chrome and pictures are left out of the PDF */
   .site-header, .hero-actions, .hero-eyebrow, .skip-link, .contact-cta, .site-footer,
-  .lightbox, .cert-thumb, .tl-thumb, .project-thumb, .cert-card .ico, .contact-card .lbl { display: none !important; }
+  .lightbox, .cert-thumb, .tl-thumb, .project-thumb, .cert-view, .cert-card .ico, .contact-card .lbl { display: none !important; }
 
   .container { width: 100%; }
 

@@ -217,13 +217,18 @@
     function card(c) {
       var meta = [c.issuer, c.year].filter(has).join(' · ');
       var hasImg = has(c.image);
-      var thumb = hasImg
+      // "link" style: text-only card with a button that opens the picture; default: preview thumbnail on the card
+      var linkOnly = hasImg && c.imageStyle === 'link';
+      var thumb = hasImg && !linkOnly
         ? '<a class="cert-thumb" href="' + esc(c.image) + '" data-lightbox data-caption="' + esc(c.name) + '" aria-label="View certificate: ' + esc(c.name) + '">' +
             '<img src="' + esc(c.thumb || c.image) + '" alt="' + esc(c.name) + ' certificate" loading="lazy">' +
             '<span class="cert-zoom">' + icon('zoom') + 'View</span>' +
           '</a>'
         : '';
-      return '<article class="card cert-card reveal' + (hasImg ? ' has-image' : '') + '">' +
+      var viewBtn = linkOnly
+        ? '<a class="project-link cert-view" href="' + esc(c.image) + '" data-lightbox data-caption="' + esc(c.name) + '" aria-label="View certificate: ' + esc(c.name) + '">View certificate' + icon('zoom') + '</a>'
+        : '';
+      return '<article class="card cert-card reveal' + (thumb ? ' has-image' : '') + '">' +
         thumb +
         '<div class="cert-body">' +
           '<span class="ico">' + icon('award') + '</span>' +
@@ -231,6 +236,7 @@
             '<h3>' + esc(c.name) + '</h3>' +
             (has(meta) ? '<p class="meta">' + esc(meta) + '</p>' : '') +
             (has(c.score) ? '<p class="score">' + esc(c.score) + '</p>' : '') +
+            viewBtn +
             (has(c.link) ? '<a class="project-link"' + extLink(c.link) + '>Verify' + icon('external') + '</a>' : '') +
           '</div>' +
         '</div>' +

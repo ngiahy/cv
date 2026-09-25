@@ -219,7 +219,8 @@ window.CV_DATA = {
   */
   certifications: [
     /* Trading credentials */
-    /* "image" = full-size picture opened when the card is clicked, "thumb" = small preview on the card. Leave both "" for a text-only card. */
+    /* "image" = full-size picture opened in the viewer, "thumb" = small preview on the card. Leave both "" for a text-only card.
+       Add imageStyle: "link" to keep the card text-only and show a "View certificate" button instead of a preview. */
     { group: "Trading credentials", name: "FTMO Prime Trader", issuer: "FTMO", year: "Apr 2026", score: "Prime Trader status awarded", link: "",
       image: "assets/certs/ftmo-prime-trader.jpg", thumb: "assets/certs/ftmo-prime-trader-thumb.jpg" },
     { group: "Trading credentials", name: "FTMO Overall Rewards — Silver Tier", issuer: "FTMO", year: "Apr 2026", score: "USD 19,684 in cumulative rewards", link: "",
@@ -234,13 +235,16 @@ window.CV_DATA = {
       image: "assets/certs/ftmo-challenge-verification.jpg", thumb: "assets/certs/ftmo-challenge-verification-thumb.jpg" },
 
     /* Courses & languages */
-    { group: "Courses & languages", name: "Chinese Language Course — HSK 1 equivalent", issuer: "Can Tho Chinese Language Centre", year: "Nov 2023", score: "Grade: Excellent (9.0 / 10)", link: "" },
-    { group: "Courses & languages", name: "Physiotherapy Student Presentations — Certificate of Attendance", issuer: "La Trobe University", year: "Dec 2020", score: "Community Engagement Experience programme", link: "" },
+    { group: "Courses & languages", name: "Chinese Language Course — HSK 1 equivalent", issuer: "Can Tho Chinese Language Centre", year: "Nov 2023", score: "Grade: Excellent (9.0 / 10)", link: "",
+      image: "assets/certs/chinese-course-hsk1-2023.jpg", imageStyle: "link" },
 
     /* Awards & activities */
-    { group: "Awards & activities", name: "Best Speaker Award", issuer: "Cantho Leader Toastmasters · Toastmasters International", year: "Aug 2018", score: "", link: "" },
-    { group: "Awards & activities", name: "Regional Youth Forum 2018 — Certificate of Completion", issuer: "Center for Sustainable Development Studies (CSDS) · Irish Aid", year: "Sep 2018", score: "", link: "" },
-    { group: "Awards & activities", name: "Encouragement Award — Student Scientific Research Ideas Competition 2018", issuer: "Youth Union, Can Tho University of Medicine and Pharmacy", year: "Jan 2018", score: "", link: "" }
+    { group: "Awards & activities", name: "Best Speaker Award", issuer: "Cantho Leader Toastmasters · Toastmasters International", year: "Aug 2018", score: "", link: "",
+      image: "assets/certs/toastmasters-best-speaker-2018.jpg", imageStyle: "link" },
+    { group: "Awards & activities", name: "Regional Youth Forum 2018 — Certificate of Completion", issuer: "Center for Sustainable Development Studies (CSDS) · Irish Aid", year: "Sep 2018", score: "", link: "",
+      image: "assets/certs/regional-youth-forum-2018.jpg", imageStyle: "link" },
+    { group: "Awards & activities", name: "Encouragement Award — Student Scientific Research Ideas Competition 2018", issuer: "Youth Union, Can Tho University of Medicine and Pharmacy", year: "Jan 2018", score: "", link: "",
+      image: "assets/certs/research-ideas-encouragement-award-2018.jpg", imageStyle: "link" }
   ],
 
   /* ---------- Languages (shown in the Contact section) ---------- */
